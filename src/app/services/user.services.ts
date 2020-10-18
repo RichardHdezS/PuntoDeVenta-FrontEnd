@@ -30,14 +30,14 @@ export class UserService {
 		console.log(params);
 		let headers = new HttpHeaders().set('Content-Type', 'application/json');
 
-		return this.http.post(this.url+'login', params, { headers: headers});
+		return this.http.post(this.url+'login',  { params, headers: headers});
     }
 
     signup( user:User): Observable<any> {
 		let params = JSON.stringify(user);
 		let headers = new HttpHeaders().set('Content-Type', 'application/json');
 
-		return this.http.post(this.url+'register', params, { headers: headers});
+		return this.http.post(this.url+'register', { params, headers: headers});
 
     }
 
