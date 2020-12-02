@@ -1,0 +1,42 @@
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #fd7802;">
+    <a class="navbar-brand" href="#">
+      <img src="../../assets/images/angular.png" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
+      ERP ITSA
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Ventas
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="main/clients">Clientes</a>
+            <a class="dropdown-item" href="#">Productos</a>
+            <a class="dropdown-item" href="#">Ventas</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Reporte</a>
+          </div>
+        </li>
+      </ul>
+      <div>
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item dropdown">
+            <a href="javascript:;" class="avatar rounded-circle nav-link dropdown-toggle" data-toggle="dropdown" role="button" id="navbarDropdown" aria-haspopup="true" aria-expanded="false" >
+              <img class="rounded-circle z-depth-0" [src]="imageToShow" alt="Avatar" *ngIf="!isImageLoading; else noImageFound" width="35" height="35">
+              <ng-template #noImageFound>
+                <i class="fa fa-user-circle fa-3x"></i>
+              </ng-template>
+              {{ identity.nick }} 
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="#" (click)="cerrarSesion()">Logout</a>
+            </div>
+          </li>
+        </ul>
+      </div>    
+    </div>
+  </nav>

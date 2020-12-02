@@ -2,7 +2,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
-import { User, FileClass } from '../models/user';
+import { User, FileClass } from '../models/db';
 import { GLOBAL } from './global';
 import { Observable } from 'rxjs';
 
@@ -17,7 +17,7 @@ export class UserService {
     }
 
     signin(email,password,gettoken=null): Observable<any> {
-        
+
         let obj_prms = {};
         obj_prms['email'] = email;       
         obj_prms['password'] = password;       

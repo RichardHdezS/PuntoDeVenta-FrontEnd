@@ -12,6 +12,7 @@ import { RouterModule } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
 import { LoginGuard } from './services/login.guard';
 import { HeadComponent } from './pages/head/head.component';
+import { CommonModule } from '@angular/common';
 
 
 
@@ -24,6 +25,7 @@ import { HeadComponent } from './pages/head/head.component';
     HeadComponent,
   ],
   imports: [
+    CommonModule,
     BrowserModule,
     AppRoutingModule,
     FormsModule,

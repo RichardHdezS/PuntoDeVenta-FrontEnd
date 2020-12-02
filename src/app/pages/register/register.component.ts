@@ -1,9 +1,9 @@
 'use strict'
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../services/user.services';
-import { FileClass, User } from '../../models/user';
 import { Router } from '@angular/router';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { User } from 'src/app/models/db';
 
 @Component({
 	selector: 'app-register',
@@ -15,6 +15,8 @@ export class RegisterComponent implements OnInit {
 	public user:User;
 	public status: string = '';
 	uploadForm: FormGroup; 
+	public name = 'Angular 4';
+	public url: string | ArrayBuffer;
 
 	constructor(private formBuilder: FormBuilder, private userService : UserService, private router : Router) {
 		this.user = new User("","","","","","","","","");
@@ -30,7 +32,7 @@ export class RegisterComponent implements OnInit {
 			password2: '',
 			image: [''],
 			filename: ''
-		  });
+		});
 	}
 
 	onFileChange(event) {
@@ -63,7 +65,7 @@ export class RegisterComponent implements OnInit {
 							if(response.user && response.user._id){
 								console.log('Record added',response.user);
 								localStorage.setItem('identity', JSON.stringify(this.user));
-								this.router.navigate(['/']);
+								this.router.navigate(['main/clients']);
 							}else{
 								this.status = response.message;
 							}
@@ -84,4 +86,5 @@ export class RegisterComponent implements OnInit {
 			}
 		);		
 	}
+
 }

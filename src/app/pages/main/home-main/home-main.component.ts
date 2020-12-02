@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/services/user.services';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  selector: 'app-home-main',
+  templateUrl: './home-main.component.html',
+  styleUrls: ['./home-main.component.css']
 })
-export class HomeComponent implements OnInit {
+export class HomeMainComponent implements OnInit {
   identity: any;
   constructor( private userService: UserService ) { }
 

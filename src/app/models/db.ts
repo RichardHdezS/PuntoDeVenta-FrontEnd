@@ -13,6 +13,20 @@ export class User {
 	){}
 }
 
+export class Client {
+	
+	constructor(
+		public _id: String,
+		public clave: String,
+		public nombre: String,
+		public direccion: String,
+		public telefono: String,
+		public saldo: Number,
+	){}
+}
+
+
+
 export class FileClass {
 	constructor(
 		file: File
