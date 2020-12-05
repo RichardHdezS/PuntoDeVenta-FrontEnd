@@ -24,7 +24,7 @@ export class DBService {
 			cli = '';
 		}
 		let params = {'client': cli };
-		console.log('Hola', params);
+		console.log('Hola cliente', params);
 		let headers = new HttpHeaders({'Content-Type': 'application/json','token': token });
 		return this.http.get(this.url+'client/get/'+cli, { params: params, headers: headers });
     }
@@ -48,5 +48,79 @@ export class DBService {
 		//let params = JSON.stringify(client);
 		let headers = new HttpHeaders({'Content-Type': 'application/json','token': token });
 		return this.http.post(this.url+'client/update', {params: JSON.stringify(client)}, { headers: headers});
+	}
+	
+
+	/**Metodos CRUD para productos */
+	get_Producto(dataProduct=null, token): Observable<any>{
+		let product = '';
+		if (dataProduct){
+			product = dataProduct;
+		} else {
+			product = '';
+		}
+		let params = {'Producto': product };
+		console.log('Hola producto', params);
+		let headers = new HttpHeaders({'Content-Type': 'application/json','token': token });
+		return this.http.get(this.url+'client/get/'+product, { params: params, headers: headers });//cambiar la direccion
+	}
+
+	create_Producto(dataProduct, token): Observable<any> {
+		//let params = JSON.stringify(client);
+		console.log(dataProduct);
+		let headers = new HttpHeaders({'Content-Type': 'application/json','token': token });
+		return this.http.post(this.url+'client/insert', {params: JSON.stringify(dataProduct)}, { headers: headers});//cambiar la direccion
     }
+
+	delete_Producto(product:String, token): Observable<any> {
+		//let params = JSON.stringify(client);
+		let params = {Producto: product };
+		console.log('Params',params);
+		let headers = new HttpHeaders({'Content-Type': 'application/json','token': token });
+		return this.http.post(this.url+'client/remove', {params: JSON.stringify(params)} , {headers: headers});//cambiar direcciona productos
+	}
+	
+    update_Producto(dataProduct, token): Observable<any> {
+		//let params = JSON.stringify(client);
+		let headers = new HttpHeaders({'Content-Type': 'application/json','token': token });
+		return this.http.post(this.url+'client/update', {params: JSON.stringify(dataProduct)}, { headers: headers});//cambiar direccion a productos
+	}
+	
+
+	/****************METODOS CRUD PARA VENTAS************ */
+	get_venta(dataVenta=null, token): Observable<any>{
+		let venta = '';
+		if (dataVenta){
+			venta = dataVenta;
+		} else {
+			venta = '';
+		}
+		let params = {'Venta': venta };
+		console.log('Hola venta', params);
+		let headers = new HttpHeaders({'Content-Type': 'application/json','token': token });
+		return this.http.get(this.url+'client/get/'+venta, { params: params, headers: headers });//cambiar la direccion para vebtas
+	}
+
+	create_Venta(dataVenta, token): Observable<any> {
+		//let params = JSON.stringify(client);
+		console.log(dataVenta);
+		let headers = new HttpHeaders({'Content-Type': 'application/json','token': token });
+		return this.http.post(this.url+'client/insert', {params: JSON.stringify(dataVenta)}, { headers: headers});//cambiar la direccion para ventas
+    }
+
+	delete_Venta(venta:String, token): Observable<any> {
+		//let params = JSON.stringify(client);
+		let params = {Venta: venta };
+		console.log('Params',params);
+		let headers = new HttpHeaders({'Content-Type': 'application/json','token': token });
+		return this.http.post(this.url+'client/remove', {params: JSON.stringify(params)} , {headers: headers});//cambiar direcciona para ventas
+	}
+	
+    update_Venta(dataVenta, token): Observable<any> {
+		//let params = JSON.stringify(client);
+		let headers = new HttpHeaders({'Content-Type': 'application/json','token': token });
+		return this.http.post(this.url+'client/update', {params: JSON.stringify(dataVenta)}, { headers: headers});//cambiar direccion para ventas
+	}
+
+	/***********Metodos Para el detalle de las ventas ****************/
 };

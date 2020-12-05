@@ -39,7 +39,7 @@ export class Producto{
 export class Venta{
 	constructor(
 		public folio: string,
-		public fecha: string,
+		public fecha: Date,
 		public cliente: string,
 		public importe: number,
 	){}
