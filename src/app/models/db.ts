@@ -25,6 +25,37 @@ export class Client {
 	){}
 }
 
+export class Producto{
+	constructor(
+		public clave: string,
+		public descripcion: string,
+		public clasificacion: string,
+		public stock: number,
+		public costo: number,
+		public precio: number,
+	){}
+}
+
+export class Venta{
+	constructor(
+		public folio: string,
+		public fecha: string,
+		public cliente: string,
+		public importe: number,
+	){}
+}
+
+export class VentaDetalle {
+	
+	constructor(
+		public Folio: string,
+		public producto: string,
+		public cantidad: number,
+		public precio: number,
+		public importe: number,
+	){}
+}
+
 
 
 export class FileClass {
