@@ -125,6 +125,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "nodejs-frontend"
+    }
+  },
+  "defaultProject": "nodejs-frontend",
+  "cli": {
+    "analytics": "e367b8ee-cfd0-4727-b38b-0ca4aa857159"
+  }
 }

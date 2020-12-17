@@ -1,2 +1,44 @@
 <app-head-main></app-head-main>
-<h1>Soy ventas</h1>
+<div>
+    <h1>Lista de ventas</h1>
+    <button class="btn btn-primary" routerLink="vregister">Agregar venta</button>
+    <br>
+    <table class="table">
+        <thead class="thead-light">
+            <tr>
+                <th scope="col">Folio</th>
+                <th scope="col">Estatus</th>
+                <th scope="col">Fecha</th>
+                <th scope="col">Cliente</th>
+                <th scope="col">Total</th>
+   
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let v of ventas">
+                <th scope="row">{{ v.folio }}</th>
+                <td>Realizada</td>
+                <td>{{ v.fecha }}</td>
+                <td>{{ v.cliente }}</td>
+                <td>{{ v.total }}</td>
+                <td><button class="btn btn-danger boton" (click)="onDelete(v.folio)"><i class="fa fa-trash-o"></i></button><button class="btn btn-warning boton"><i class="fa fa-pencil"></i></button></td>
+                <!--<td><button type="button" (click)="mostrar = !mostrar" class="btn btn-primary">Detalles</button></td>
+                 <td *ngIf="mostrar">
+                    <div class="card text-white bg-primary">
+                        <div class="card-body">
+                            <h5 class="card-title">Detalle de Venta</h5>
+                            
+                            <p>{{dllVentas[i].Folio}}</p>
+                            <p>{{dllVentas[i].producto}}</p>                           
+                            <p>{{dllVentas[i].cantidad}}</p>
+                            <p>{{dllVentas[i].precio}}</p>
+                            <p>{{dllVentas[i].importe}}</p>
+                        </div>
+                    </div> 
+                </td> -->
+                <!--<td><button type="button" class="btn btn-primary"  (click)="generarPdf(v)">Ticket</button>
+                <td><button type="button" class="btn btn-danger" (click)="delete_venta(v)">Eliminar</button> -->
+            </tr>
+        </tbody>
+    </table>
+</div>

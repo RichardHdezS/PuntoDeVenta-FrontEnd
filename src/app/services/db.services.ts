@@ -88,7 +88,8 @@ export class DBService {
 	
 
 	/****************METODOS CRUD PARA VENTAS************ */
-	get_venta(dataVenta=null, token): Observable<any>{
+	get_venta(token, dataVenta=null): Observable<any>{
+		console.log(dataVenta,'parametro recibido');
 		let venta = '';
 		if (dataVenta){
 			venta = dataVenta;
@@ -97,15 +98,15 @@ export class DBService {
 		}
 		let params = {'Venta': venta };
 		console.log('Hola venta', params);
-		let headers = new HttpHeaders({'Content-Type': 'application/json','token': token });
-		return this.http.get(this.url+'client/get/'+venta, { params: params, headers: headers });//cambiar la direccion para vebtas
+		 let headers = new HttpHeaders({'Content-Type': 'application/json','token': token });
+		return this.http.get(this.url+'venta/get/'+venta, { params: params, headers: headers });//cambiar la direccion para vebtas
 	}
 
 	create_Venta(dataVenta, token): Observable<any> {
 		//let params = JSON.stringify(client);
-		console.log(dataVenta);
+		console.log(dataVenta+'Hola buenas mucho gusto');
 		let headers = new HttpHeaders({'Content-Type': 'application/json','token': token });
-		return this.http.post(this.url+'client/insert', {params: JSON.stringify(dataVenta)}, { headers: headers});//cambiar la direccion para ventas
+		return this.http.post(this.url+'venta/insert', {params: JSON.stringify(dataVenta)}, { headers: headers});//cambiar la direccion para ventas
     }
 
 	delete_Venta(venta:String, token): Observable<any> {
@@ -113,13 +114,13 @@ export class DBService {
 		let params = {Venta: venta };
 		console.log('Params',params);
 		let headers = new HttpHeaders({'Content-Type': 'application/json','token': token });
-		return this.http.post(this.url+'client/remove', {params: JSON.stringify(params)} , {headers: headers});//cambiar direcciona para ventas
+		return this.http.post(this.url+'venta/remove', {params: JSON.stringify(params)} , {headers: headers});//cambiar direcciona para ventas
 	}
 	
     update_Venta(dataVenta, token): Observable<any> {
 		//let params = JSON.stringify(client);
 		let headers = new HttpHeaders({'Content-Type': 'application/json','token': token });
-		return this.http.post(this.url+'client/update', {params: JSON.stringify(dataVenta)}, { headers: headers});//cambiar direccion para ventas
+		return this.http.post(this.url+'venta/update', {params: JSON.stringify(dataVenta)}, { headers: headers});//cambiar direccion para ventas
 	}
 
 	/***********Metodos Para el detalle de las ventas ****************/

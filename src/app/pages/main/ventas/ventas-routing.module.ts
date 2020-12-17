@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { UserGuard } from 'src/app/services/user.guard';
 import { VentasComponent } from './ventas.component';
 import { HomeComponent } from './home/home.component';
+import { VregisterComponent } from './vregister/vregister.component';
 
 const routes: Routes = [
   { path : '', component: VentasComponent, 
@@ -10,7 +11,8 @@ const routes: Routes = [
       { path: '', component: HomeComponent, canActivate: [UserGuard] },
     ]
   },
-  
+
+  {path: 'vregister', component: VregisterComponent, canActivate: [UserGuard] },
 ];
 
 @NgModule({
