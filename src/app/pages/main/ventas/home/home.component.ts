@@ -47,9 +47,8 @@ export class HomeComponent implements OnInit {
       }
     );
   }
-/*
+
   onEdit(venta) {
     this.router.navigate(['main/ventas/edit',venta]);
   }
-*/
 }

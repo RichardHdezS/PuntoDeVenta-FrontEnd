@@ -8,6 +8,7 @@ import { VentasComponent } from './ventas.component';
 import { SharedModule } from '../share.module';
 import { VregisterComponent } from './vregister/vregister.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { EditVComponent } from './edit-v/edit-v.component';
 
 
 
@@ -16,6 +17,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     HomeComponent,
     VentasComponent,
     VregisterComponent,
+    EditVComponent,
   ],
   imports: [
     CommonModule,

@@ -21,7 +21,7 @@
                 <td>{{ v.fecha }}</td>
                 <td>{{ v.cliente }}</td>
                 <td>{{ v.total }}</td>
-                <td><button class="btn btn-danger boton" (click)="onDelete(v.folio)"><i class="fa fa-trash-o"></i></button><button class="btn btn-warning boton"><i class="fa fa-pencil"></i></button></td>
+                <td><button class="btn btn-danger boton" (click)="onDelete(v.folio)"><i class="fa fa-trash-o"></i></button><button class="btn btn-warning boton" (click)="onEdit(v)"><i class="fa fa-pencil"></i></button></td>
                 <!--<td><button type="button" (click)="mostrar = !mostrar" class="btn btn-primary">Detalles</button></td>
                  <td *ngIf="mostrar">
                     <div class="card text-white bg-primary">
