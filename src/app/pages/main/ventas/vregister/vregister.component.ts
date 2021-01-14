@@ -37,6 +37,12 @@ export class VregisterComponent implements OnInit {
     //this.producto = this.database.get_Producto();
   }
 
+  onChange(): void {
+  
+    //this.cliente = this.database.get_clients();
+    //this.producto = this.database.get_Producto();
+  }
+
   onSubmit(){
     var data_venta = {
       folio: this.venta.value.folio,
