@@ -55,8 +55,10 @@ export class UserService {
 		let ident = JSON.parse(localStorage.getItem('identity'));
 		if(ident != null){
 			this.token = ident.token;
+			console.log(this.token, "SOY TOKEN");
 		}else{
 			this.token = null;
+			console.log(this.token, "NO SOY TOKEN");
 		}
 		return this.token;
 	}

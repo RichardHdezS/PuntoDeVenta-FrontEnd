@@ -1,2 +1,28 @@
 <app-head-main></app-head-main>
-<h1>Soy productos</h1>
+<div>
+    <h1>Lista de Productos</h1>
+    <button class="btn btn-primary" routerLink="register">Agregar</button>
+    <table class="table">
+        <thead class="thead-light">
+            <tr>
+                <th scope="col">Clave</th>
+                <th scope="col">descripcion</th>
+                <th scope="col">clasificacion</th>
+                <th scope="col">stock</th>
+                <th scope="col">costo</th>
+                <th scope="col">precio</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let prod of productos">
+                <th scope="row">{{ prod.clave }}</th>
+                <td>{{ prod.descripcion }}</td>
+                <td>{{ prod.clasificacion }}</td>
+                <td>{{ prod.stock }}</td>
+                <td>{{ prod.costo }}</td>
+                <td>{{ prod.precio }}</td>
+                <td><button class="btn btn-danger boton" (click)="onDelete(prod.clave)"><i class="fa fa-trash-o"></i></button><button class="btn btn-warning boton" (click)="onEdit(prod)"><i class="fa fa-pencil"></i></button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
