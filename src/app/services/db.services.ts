@@ -125,4 +125,11 @@ export class DBService {
 	}
 
 	/***********Metodos Para el detalle de las ventas ****************/
+
+	create_DlleVenta(dataVenta, token): Observable<any> {
+		//let params = JSON.stringify(client);
+		console.log(dataVenta+'Hola buenas mucho gusto');
+		let headers = new HttpHeaders({'Content-Type': 'application/json','token': token });
+		return this.http.post(this.url+'venta/insert', {params: JSON.stringify(dataVenta)}, { headers: headers});//cambiar la direccion para ventas
+    }
 };

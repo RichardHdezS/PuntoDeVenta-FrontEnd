@@ -12,7 +12,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"> <i class="fa fa-user"></i> </span>
                                 </div>
-                                <input name="folio" class="form-control" placeholder="Clave" type="text" formControlName="folio">
+                                <input id="folio" name="folio" class="form-control" placeholder="Clave" type="text" formControlName="folio">
                             </div> <!-- form-group// -->
                             <div class="form-group input-group">
                                 <div class="input-group-prepend">
@@ -27,7 +27,7 @@
                                 <select id="cliente" name="Cliente" class="form-control"
                                 placeholder="Cliente" formControlName="cliente">
                                     <option value="">Selecciona el cliente</option>
-                                    <option *ngFor="let cli of cliente"
+                                    <option *ngFor="let cli of clientes"
                                     [value]= "cli.nombre">
                                     {{ cli.nombre }}
                                     </option>
@@ -40,8 +40,8 @@
                                 <select id="Producto" name="Producto" class="form-control"
                                 placeholder="Producto" (change)="onChange()" formControlName="fecha">
                                 <option value="">Selecciona el producto</option>
-                                    <option *ngFor="let pro of producto"
-                                    [value]= "pro.clave">
+                                    <option *ngFor="let pro of productos"
+                                    [value]= "pro.descripcion">
                                     {{ pro.descripcion }}
                                     </option>
                                 </select>
@@ -52,26 +52,26 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
                                 </div>
-                                <input id="cantidad" name="cantidad" class="form-control" placeholder="Cantidad" type="number" formControlName="dllecantidad">
+                                <input id="cantidad" name="cantidad" class="form-control" placeholder="Cantidad" type="number">
                             </div> <!-- form-group// -->
   
                             <div class="form-group input-group">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
                                 </div>
-                                <input id="descripcion" name="Descripcion" class="form-control" disabled="disabled" placeholder="Descripcion" type="text" formControlName="dlledescripcion">
+                                <input id="descripcion" name="Descripcion" class="form-control" disabled="disabled" placeholder="Descripcion" type="text">
                             </div> <!-- form-group// -->
 
                             <div class="form-group input-group">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
                                 </div>
-                                <input id="price" name="Importe" class="form-control" placeholder="Precio unitario" disabled="disabled" type="height" formControlName="dlleimporte">
+                                <input id="price" name="Importe" class="form-control" placeholder="Precio unitario" disabled="disabled" type="height">
                             </div> <!-- form-group// -->
 
                             <div class="form-group row justify-content-around">
                                 <div class="col">
-                                    <button type="button" class="btn btn-primary ">Agregar al carrito</button>
+                                    <button type="button" (click)="agregaCarrito()" class="btn btn-primary ">Agregar al carrito</button>
                                 </div>
                                 <div class="col">
                                      <button type="submit" class="btn btn-primary ">Registrar Venta</button>
