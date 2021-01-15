@@ -126,10 +126,38 @@ export class DBService {
 
 	/***********Metodos Para el detalle de las ventas ****************/
 
-	create_DlleVenta(dataVenta, token): Observable<any> {
+	get_Dlleventa(token, dataDVenta=null): Observable<any>{
+		console.log(dataDVenta,'parametro recibido');
+		let dventa = '';
+		if (dataDVenta){
+			dventa = dataDVenta;
+		} else {
+			dventa = '';
+		}
+		let params = {'Detalle Venta': dventa };
+		console.log('Hola venta', params);
+		 let headers = new HttpHeaders({'Content-Type': 'application/json','token': token });
+		return this.http.get(this.url+'ventaDetalle/get/'+dventa, { params: params, headers: headers });//cambiar la direccion para vebtas
+	}
+
+	update_DlleVenta(dataDVenta, token): Observable<any> {
 		//let params = JSON.stringify(client);
-		console.log(dataVenta+'Hola buenas mucho gusto');
 		let headers = new HttpHeaders({'Content-Type': 'application/json','token': token });
-		return this.http.post(this.url+'venta/insert', {params: JSON.stringify(dataVenta)}, { headers: headers});//cambiar la direccion para ventas
-    }
+		return this.http.post(this.url+'ventaDetalle/update', {params: JSON.stringify(dataDVenta)}, { headers: headers});//cambiar direccion para ventas
+	}
+	
+	create_DlleVenta(dataDVenta, token): Observable<any> {
+		//let params = JSON.stringify(client);
+		console.log(dataDVenta+'Hola buenas mucho gusto');
+		let headers = new HttpHeaders({'Content-Type': 'application/json','token': token });
+		return this.http.post(this.url+'ventaDetalle/insert', {params: JSON.stringify(dataDVenta)}, { headers: headers});//cambiar la direccion para ventas
+	}
+	
+	delete_DlleVenta(ventaDetalle:String, token): Observable<any> {
+		//let params = JSON.stringify(client);
+		let params = {ventaDetalle: ventaDetalle };
+		console.log('Params',params);
+		let headers = new HttpHeaders({'Content-Type': 'application/json','token': token });
+		return this.http.post(this.url+'ventaDetalle/remove', {params: JSON.stringify(params)} , {headers: headers});//cambiar direcciona para ventas
+	}
 };

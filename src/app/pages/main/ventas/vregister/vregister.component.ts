@@ -128,7 +128,8 @@ export class VregisterComponent implements OnInit {
           console.log(<any>error);
         }
       );
-      /* console.log(this.carrito[i].Dfolio);
+      /*
+      console.log(this.carrito[i].Dfolio);
       console.log(this.carrito[i].Dproducto);
       console.log(this.carrito[i].Dcantidad);
       console.log(this.carrito[i].DprecioUni);
